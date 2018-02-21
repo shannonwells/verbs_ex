@@ -1,21 +1,21 @@
-# Verbs
+# Verbs (pre-alpha)
 
 English verb conjugation in Elixir.
 
 Conjugates most common English verbs for all persons, tenses, standard aspects, and modern moods (with active diathesis). Standard and exceptional spelling rules are obeyed.
 
 ```
-      iex> Verbs.conjugate :be, :tense => "past", :person => "second", :plurality => "singular", :aspect => "perfective"
-      => "were"
+iex> Verbs.conjugate :be, :tense => "past", :person => "second", :plurality => "singular", :aspect => "perfective"
+iex> "were"
 
-      Verb.conjugate "sleep" :tense => :future, :person => :first, :plurality => :singular, :aspect => :progressive, :subject => true
-      => "will be sleeping"
+Verb.conjugate "sleep" :tense => :future, :person => :first, :plurality => :singular, :aspect => :progressive, :subject => true
+iex> "will be sleeping"
 ```  
 
 ## Installation
 
-  Add this line to your mix.exs dependencies:
-  `{:dep_from_git, git: https://github.com/shannonwells/verbs.git, tag: "0.1.0"},
+Add this line to your mix.exs dependencies:
+```{:dep_from_git, git: https://github.com/shannonwells/verbs.git, tag: "0.1.0"},
 
 ## Options
 
@@ -43,7 +43,7 @@ See below for a guide to verb aspect.
 <tt>:indicative</tt>, <tt>:imperative</tt>, or <tt>:subjunctive</tt>
 
 ## Tense/aspect quick reference
-
+>>>
   EXAMPLE                   TENSE    ASPECT
 
   I usually accepted        past     habitual

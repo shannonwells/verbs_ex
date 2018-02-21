@@ -9,16 +9,15 @@ defmodule ConjugateBe do
   end
 
   defp present(options) do
-    case options[:person] do
-      "first" -> present_first(options[:plurality])
-      "third" -> present_third(options[:plurality])
+    case options[:plurality] do
+      "singular" -> present_singular(options[:person])
       _ -> "are"
     end
   end
 
   defp past(options) do
-    case options[:person] do
-      "first" -> past_first(options[:plurality])
+    case options[:plurality] do
+      "singular" -> past_singular(options[:person])
       _ -> "were"
     end
   end
@@ -27,12 +26,11 @@ defmodule ConjugateBe do
     "will be"
   end
 
-  defp present_third("singular") do "is" end
-  defp present_third("plural") do "are" end
+  defp present_singular("first") do "am" end
+  defp present_singular("second") do "are" end
+  defp present_singular("third") do "is" end
 
-  defp present_first("singular") do "am" end
-  defp present_first("plural") do "are" end
-
-  defp past_first("singular") do "was" end
-  defp past_first("plural") do "were" end
+  # I was, you were, it was
+  defp past_singular("second") do "were" end
+  defp past_singular(_) do "was" end
 end
