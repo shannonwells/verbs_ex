@@ -24,6 +24,10 @@ defmodule ConjugateHave do
     end
   end
 
-  defp present_third("singular") do "has" end
-  defp present_third("plural") do "have" end
+  defp present_third(plurality) do
+    case plurality do
+      "singular" -> "has"
+      _ -> "have"
+    end
+  end
 end

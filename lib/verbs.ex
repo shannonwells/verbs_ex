@@ -7,16 +7,17 @@ defmodule Verbs do
       :tense => "past", :person => "1", :plurality => "singular")
       "play"
   """
-  @irregular_verbs  ["awake","drink", "grind", "write"]
-
-  def conjugate(infinitive, options) when infinitive in @irregular_verbs do
-    ConjugateIrregular.conjugate(infinitive, options)
-  end
 
   def conjugate("have", options) do ConjugateHave.conjugate(options) end
   def conjugate("be", options) do ConjugateBe.conjugate(options) end
+
   def conjugate(infinitive, options) do
-    infinitive <> "s"
+    if (ConjugateIrregular.is_irregular?(infinitive)) do
+      ConjugateIrregular.conjugate(infinitive, options)
+    else
+      infinitive <> "s"
+    end
+
   end
 
 end

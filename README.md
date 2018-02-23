@@ -5,66 +5,57 @@ English verb conjugation in Elixir.
 Conjugates most common English verbs for all persons, tenses, standard aspects, and modern moods (with active diathesis). Standard and exceptional spelling rules are obeyed.
 
 ```
-iex> Verbs.conjugate :be, :tense => "past", :person => "second", :plurality => "singular", :aspect => "perfective"
+Verbs.conjugate :be, :tense => "past", :person => "second", :plurality => "singular"
 iex> "were"
 
-Verb.conjugate "sleep" :tense => :future, :person => :first, :plurality => :singular, :aspect => :progressive, :subject => true
-iex> "will be sleeping"
+Verb.conjugate "sleep" :tense => "future", :person => "first", :plurality => "singular"
+"will sleep"
 ```  
 
 ## Installation
 
 Add this line to your mix.exs dependencies:
-```{:dep_from_git, git: https://github.com/shannonwells/verbs.git, tag: "0.1.0"},
+```
+{ :dep_from_git, git: https://github.com/shannonwells/verbs.git, tag: "0.1.0"},
+```
 
-## Options
+## 'Options'
+The options are currently not optional; tense, person and plurality are required.  Option values must be strings.
 
-You can also use abbreviations for the conjugations. There are no default values.
+__:tense__ past, present, future.
 
-### <tt>:tense</tt>
+__:person__  first, second, third
 
-<tt>:past</tt>, <tt>:present</tt>, or <tt>:future</tt>.
+__:plurality__ singular, plural
 
-### <tt>:person</tt>
-
-<tt>:first</tt>, <tt>:second</tt>, or <tt>:third</tt>
-
-### <tt>:plurality</tt>
-
-<tt>:singular</tt> or <tt>:plural</tt>
-
-### <tt>:aspect</tt>
-
-<tt>:habitual</tt>, <tt>:perfect</tt>, <tt>:perfective</tt>, <tt>:progressive</tt>, or <tt>:prospective</tt>
+### Not yet implemented
+__:aspect__ habitual, perfect, perfective, progressive, prospective
 See below for a guide to verb aspect.
 
-### <tt>:mood</tt>
-
-<tt>:indicative</tt>, <tt>:imperative</tt>, or <tt>:subjunctive</tt>
+__:mood__ - indicative, imperative, subjunctive
 
 ## Tense/aspect quick reference
->>>
-  EXAMPLE                   TENSE    ASPECT
 
-  I usually accepted        past     habitual
-  I had accepted            past     perfect
-  I accepted                past     perfective
-  I was accepting           past     progressive
-  I was about to accept     past     prospective
+    EXAMPLE                   TENSE    ASPECT
 
-  I accept                  present  habitual
-  I have accepted           present  perfect
-  I am having accepted      present  perfective
-  I am accepting            present  progressive
-  I am about to accept      present  prospective
+    I accepted                past     perfective
+    I had accepted            past     perfect
+    I was accepting           past     progressive
+    I usually accepted        past     habitual
+    I was about to accept     past     prospective
 
-  I will accept             future   habitual
-  I will have accepted      future   perfect
-  I will be having accepted future   perfective
-  I will be accepting       future   progressive
-  I will be about to accept future   prospective
+    I accept                  present  habitual
+    I have accepted           present  perfect
+    I am accepting            present  progressive
+    I am about to accept      present  prospective
+
+    I will accept             future   habitual
+    I will have accepted      future   perfect
+    I will be accepting       future   progressive
+    I will be about to accept future   prospective
 
 ## Acknowledgements
+
 * (Andy Rossmeissl - rossmeissl/verbs)[https://github.com/rossmeissl/verbs]
 * (Lingua::Conjugate)[http://cpansearch.perl.org/src/RWG/Lingua-EN-Conjugate-0.308/lib/Lingua/EN/Conjugate.pm]
 * (Pat Byrd and Tom McKlin)[http://www2.gsu.edu/~wwwesl/egw/pluralsv.htm]

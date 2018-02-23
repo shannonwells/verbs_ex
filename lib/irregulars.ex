@@ -32,7 +32,7 @@ defmodule Irregulars do
      "deal" => ["dealt", "dealt"],
      "dig" => ["dug", "dug"],
      "dive" => ["dove", "dived"],
-     'do' => ["did", "done"],
+     "do" => ["did", "done"],
      "draw" => ["drew", "drawn"],
      "dream" => ["dreamed", "dreamed"],
      "drive" => ["drove", "driven"],

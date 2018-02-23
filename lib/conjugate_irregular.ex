@@ -18,12 +18,18 @@ defmodule ConjugateIrregular do
     end
   end
 
-  def third_present(infinitive, "singular") do infinitive <> "s" end
-  def third_present(infinitive, "plural") do infinitive end
+
+  defp third_present(infinitive, plurality) do
+    case plurality do
+      "singular" -> infinitive <> "s"
+      "plural" -> infinitive
+    end
+  end
 
   def fetch_past(infinitive) do
-    {:ok, list} =  Map.get(Irregulars.verb_forms, infinitive)
-    {:ok, past} = Enum.fetch(list, 0)
+    {:ok, past} =
+      Map.get(Irregulars.verb_forms, infinitive)
+      |> Enum.fetch(0)
     past
   end
 end

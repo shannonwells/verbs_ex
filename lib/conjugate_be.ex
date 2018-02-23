@@ -22,15 +22,20 @@ defmodule ConjugateBe do
     end
   end
 
-  defp future(_) do
-    "will be"
+  defp future(_) do "will be" end
+
+  defp present_singular(person) do
+    case person do
+      "first" -> "am"
+      "second" -> "are"
+      _ -> "is"
+    end
   end
 
-  defp present_singular("first") do "am" end
-  defp present_singular("second") do "are" end
-  defp present_singular("third") do "is" end
-
-  # I was, you were, it was
-  defp past_singular("second") do "were" end
-  defp past_singular(_) do "was" end
+  defp past_singular(person) do
+    case person do
+      "second" -> "were"
+      _ -> "was"
+    end
+  end
 end
