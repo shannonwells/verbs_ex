@@ -1,9 +1,12 @@
 defmodule ConjugateBe do
+  require ConjugateHave
 
   def conjugate(options) do
     case options[:tense] do
       "present" -> present(options)
       "past" -> past(options)
+      "past_perfect" -> past_perfect(options)
+      "past_progressive" -> past_progressive(options)
       "future" -> future(options)
     end
   end
@@ -20,6 +23,21 @@ defmodule ConjugateBe do
       "singular" -> past_singular(options[:person])
       _ -> "were"
     end
+  end
+
+  defp past_perfect(options) do
+    (options
+    |> Map.merge(%{:tense => "past"})
+    |> ConjugateHave.conjugate)
+    <> " been"
+  end
+
+  defp past_progressive(options) do
+    (options
+     |> Map.merge(%{:tense => "past"})
+     |> ConjugateBe.conjugate)
+    <> " being"
+
   end
 
   defp future(_) do "will be" end

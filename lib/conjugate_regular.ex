@@ -1,31 +1,55 @@
 defmodule ConjugateRegular do
-
-  @consonant_pattern "[bcdfghjklmnpqrstvwxz]"
-  @doubled_consonant_pattern "[bcdfghklmnprstz]"
-  @vowel_pattern "[aeiouy]"
+  require Suffix
 
   def conjugate(infinitive, options) do
-    cond do
-      ends_consonant_vowel_double_consonant?(infinitive) -> IO.puts("cvcc")
-      ends_consonant_plus_y?(infinitive) -> IO.puts("cy")
-      ends_consonant_plus_e?(infinitive) -> IO.puts("ce")
+    case options[:tense] do
+      "past" -> past(infinitive)
+      "past_perfect" -> past_perfect(infinitive, options)
+      "present_progressive" -> present_progressive(infinitive, options)
+      "past_progressive" -> past_progressive(infinitive, options)
+      "present" -> present(infinitive, options)
+      "future" -> "will " <> infinitive
     end
   end
 
-  def ends_consonant_vowel_double_consonant?(infinitive) do
-    pattern = @consonant_pattern <> @vowel_pattern <> @doubled_consonant_pattern  <> "$"
-    {:ok, regex} = Regex.compile(pattern, "i")
-    Regex.match?(regex, infinitive)
+  def present(infinitive, options) do
+    case options[:person] do
+      "third" -> third_present(infinitive, options[:plurality])
+      _ -> infinitive
+    end
   end
 
-  def ends_consonant_plus_y?(infinitive) do
-    {:ok, regex} = Regex.compile(@consonant_pattern <> "y" <> "$", "i")
-    Regex.match?(regex, infinitive)
+  defp past(infinitive), do: Suffix.with_ed(infinitive)
+
+  defp future(infinitive), do: "will " <> infinitive
+
+  defp present_progressive(infinitive, options) do
+    (options
+     |> Map.merge(%{:tense => "present"})
+     |> ConjugateBe.conjugate)
+    <> " " <> Suffix.with_ing(infinitive)
   end
 
-  def ends_consonant_plus_e?(infinitive) do
-    {:ok, regex} = Regex.compile(@consonant_pattern <> "e" <> "$","i")
-    Regex.match?(regex, infinitive)
+  defp past_progressive(infinitive, options) do
+    (options
+     |> Map.merge(%{:tense => "past"})
+     |> ConjugateBe.conjugate)
+    <> " " <> Suffix.with_ing(infinitive)
+  end
+
+  # I have worked
+  defp past_perfect(infinitive, options) do
+    (options
+     |> Map.merge(%{:tense => "past"})
+     |> ConjugateHave.conjugate)
+    <> " " <> past(infinitive)
+  end
+
+  defp third_present(infinitive, plurality) do
+    case plurality do
+      "singular" -> Suffix.with_s(infinitive)
+      "plural" -> infinitive
+    end
   end
 
 end

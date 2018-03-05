@@ -1,6 +1,9 @@
 defmodule Verbs do
-  require ConjugateBe
-  require ConjugateHave
+#  require ConjugateBe
+#  require ConjugateHave
+#  require ConjugateRegular
+#  require ConjugateIrregular
+ConjugateIrregular
   @doc """
     Example:
     Verb.conjugate("play",
@@ -15,7 +18,7 @@ defmodule Verbs do
     if (ConjugateIrregular.is_irregular?(infinitive)) do
       ConjugateIrregular.conjugate(infinitive, options)
     else
-      infinitive <> "s"
+      ConjugateRegular.conjugate(infinitive, options)
     end
 
   end
