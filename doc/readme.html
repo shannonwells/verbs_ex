@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.18.3">
+    <title>Verbs (pre-alpha) – verbs v0.5.2</title>
+    <link rel="stylesheet" href="dist/app-480ffdc169.css" />
+    
+    <script src="dist/sidebar_items-a4384d01f7.js"></script>
+    
+    
+    
+    
+  </head>
+  <body data-type="extras">
+    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
+
+<div class="main">
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Sidebar</span>
+</button>
+<button class="sidebar-button night-mode-toggle">
+  <span class="icon-theme" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Theme</span>
+</button>
+<section class="sidebar">
+
+  
+  <a href="Verbs.html" class="sidebar-projectLink">
+    <div class="sidebar-projectDetails">
+      <h1 class="sidebar-projectName">
+        verbs
+      </h1>
+      <h2 class="sidebar-projectVersion">
+        v0.5.2
+      </h2>
+    </div>
+    
+  </a>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <input name="q" type="text" id="search-list" class="search-input" placeholder="Search" aria-label="Search" autocomplete="off" />
+  </form>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+    
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+    
+
+    
+
+    
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+
+<h1>Verbs (pre-alpha)</h1>
+<p>English verb conjugation in Elixir.</p>
+<p>Conjugates most common English verbs for all persons, tenses, standard aspects, and modern moods (with active diathesis). Standard and exceptional spelling rules are obeyed.</p>
+<pre><code class="elixir">Verbs.conjugate :be, :tense =&gt; :past, :person =&gt; :second, :plurality =&gt; :singular
+iex&gt; &quot;were&quot;
+
+Verb.conjugate &quot;sleep&quot; :tense =&gt; :future, :person =&gt; :first, :plurality =&gt; :singular
+&quot;will sleep&quot;</code></pre>
+<h2 id="installation" class="section-heading">
+  <a href="#installation" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Installation
+</h2>
+
+<p>Add this line to your mix.exs dependencies:</p>
+<pre><code class="elixir">{ :dep_from_git, git: https://github.com/shannonwells/verbs.git, tag: &quot;0.5.3&quot;},</code></pre>
+<p>or from Hex:</p>
+<pre><code class="elixir">def deps do
+  [
+    {:verbs, &quot;~&gt; 0.5.3&quot;}
+  ]
+end</code></pre>
+<h2 id="parameters" class="section-heading">
+  <a href="#parameters" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Parameters
+</h2>
+
+<p>Parameters aren’t optional; tense, person and plurality are required.  Option values are atoms.</p>
+<p><strong>:tense</strong> <code class="inline">:past, :present, :future, :present_progressive, :past_progressive, :past_perfect</code></p>
+<p><strong>:person</strong>  <code class="inline">:first, :second, :third</code></p>
+<p><strong>:plurality</strong> <code class="inline">:singular, :plural</code></p>
+<h2 id="tense-aspect-quick-reference" class="section-heading">
+  <a href="#tense-aspect-quick-reference" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Tense/aspect quick reference
+</h2>
+
+<pre><code class="elixir">EXAMPLE                   TENSE
+
+I accepted                past
+I had accepted            past perfect
+I was accepting           past progressive
+
+I accept                  present
+I have accepted           present perfect
+I am accepting            present progressive
+
+I will accept             future
+I will be accepting       future   progressive</code></pre>
+<h2 id="acknowledgements" class="section-heading">
+  <a href="#acknowledgements" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Acknowledgements
+</h2>
+
+<ul>
+<li>(Andy Rossmeissl - rossmeissl/verbs)[https://github.com/rossmeissl/verbs]
+</li>
+<li>(Lingua::Conjugate)[http://cpansearch.perl.org/src/RWG/Lingua-EN-Conjugate-0.308/lib/Lingua/EN/Conjugate.pm]
+</li>
+<li>(Pat Byrd and Tom McKlin)[http://www2.gsu.edu/~wwwesl/egw/pluralsv.htm]
+</li>
+<li>(Rick Harrison)[http://www.rickharrison.com/language/aspect.html]
+</li>
+<li>(Anatoli Makarevich)[https://github.com/makaroni4] for (#6)[https://github.com/rossmeissl/verbs/pull/6]
+</li>
+</ul>
+<h2 id="copyright" class="section-heading">
+  <a href="#copyright" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Copyright
+</h2>
+
+<p>Copyright (c) 2018 Shannon E. Wells. See LICENSE for details.</p>
+
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.18.3),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            </span>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  <script src="dist/app-9bd040e5e5.js"></script>
+  
+  
+  
+  
+  </body>
+</html>
+

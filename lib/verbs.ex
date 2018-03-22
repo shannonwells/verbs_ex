@@ -4,16 +4,20 @@ defmodule Verbs do
 #  require ConjugateRegular
 #  require ConjugateIrregular
 ConjugateIrregular
-  @doc """
-    Example:
-    Verb.conjugate("play",
-      :tense => "past", :person => "1", :plurality => "singular")
-      "play"
+  @moduledoc """
+    Conjugate English verbs. Includes conjugation for 'be', 'have', and a large number of
+    irregular verbs.  See `Irregulars.verb_forms` for a complete list.
   """
 
+  @doc """
+    ```
+    iex> Verb.conjugate("play",
+      :tense => :past, :person => :first, :plurality => :singular)
+      "play"
+    ```
+  """
   def conjugate("have", options) do ConjugateHave.conjugate(options) end
   def conjugate("be", options) do ConjugateBe.conjugate(options) end
-
   def conjugate(infinitive, options) do
     if (ConjugateIrregular.is_irregular?(infinitive)) do
       ConjugateIrregular.conjugate(infinitive, options)

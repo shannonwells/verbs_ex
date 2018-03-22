@@ -12,18 +12,18 @@ defmodule VerbsTest do
   doctest Verbs
 
   test "basic present" do
-    assert Verbs.conjugate("play", %{:tense => "present",:person => "third", :plurality => "singular"}) == "plays"
+    assert Verbs.conjugate("play", %{:tense => :present,:person => :third, :plurality => :singular}) == "plays"
   end
 
   test "to be" do
-    options = %{:tense => "present",:person => "first", :plurality => "singular"}
+    options = %{:tense => :present,:person => :first, :plurality => :singular}
     assert "I " <> Verbs.conjugate("be", options) == "I am"
   end
 
 
   test "irregulars" do
     # she drinks
-    options = %{:tense => "present",:person => "third", :plurality => "singular"}
+    options = %{:tense => :present,:person => :third, :plurality => :singular}
     assert "she " <> Verbs.conjugate("drink", options) == "she drinks"
   end
 end

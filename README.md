@@ -5,10 +5,10 @@ English verb conjugation in Elixir.
 Conjugates most common English verbs for all persons, tenses, standard aspects, and modern moods (with active diathesis). Standard and exceptional spelling rules are obeyed.
 
 ```
-Verbs.conjugate :be, :tense => "past", :person => "second", :plurality => "singular"
+Verbs.conjugate :be, :tense => :past, :person => :second, :plurality => :singular
 iex> "were"
 
-Verb.conjugate "sleep" :tense => "future", :person => "first", :plurality => "singular"
+Verb.conjugate "sleep" :tense => :future, :person => :first, :plurality => :singular
 "will sleep"
 ```  
 
@@ -16,43 +16,42 @@ Verb.conjugate "sleep" :tense => "future", :person => "first", :plurality => "si
 
 Add this line to your mix.exs dependencies:
 ```
-{ :dep_from_git, git: https://github.com/shannonwells/verbs.git, tag: "0.1.0"},
+{ :dep_from_git, git: https://github.com/shannonwells/verbs.git, tag: "0.5.3"},
+```
+or from Hex:
+
+```elixir
+def deps do
+  [
+    {:verbs, "~> 0.5.3"}
+  ]
+end
 ```
 
-## 'Options'
-The options are currently not optional; tense, person and plurality are required.  Option values must be strings.
+## Parameters
+Parameters aren't optional; tense, person and plurality are required.  Option values are atoms.
 
-__:tense__ past, present, future.
+__:tense__ `:past, :present, :future, :present_progressive, :past_progressive, :past_perfect`
 
-__:person__  first, second, third
+__:person__  `:first, :second, :third`
 
-__:plurality__ singular, plural
+__:plurality__ `:singular, :plural`
 
-### Not yet implemented
-__:aspect__ habitual, perfect, perfective, progressive, prospective
-See below for a guide to verb aspect.
-
-__:mood__ - indicative, imperative, subjunctive
 
 ## Tense/aspect quick reference
 
-    EXAMPLE                   TENSE    ASPECT
+    EXAMPLE                   TENSE
 
-    I accepted                past     perfective
-    I had accepted            past     perfect
-    I was accepting           past     progressive
-    I usually accepted        past     habitual
-    I was about to accept     past     prospective
+    I accepted                past
+    I had accepted            past perfect
+    I was accepting           past progressive
 
-    I accept                  present  habitual
-    I have accepted           present  perfect
-    I am accepting            present  progressive
-    I am about to accept      present  prospective
+    I accept                  present
+    I have accepted           present perfect
+    I am accepting            present progressive
 
-    I will accept             future   habitual
-    I will have accepted      future   perfect
+    I will accept             future
     I will be accepting       future   progressive
-    I will be about to accept future   prospective
 
 ## Acknowledgements
 
