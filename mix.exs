@@ -4,11 +4,14 @@ defmodule Verbs.Mixfile do
   def project do
     [
       app: :verbs,
-      licenses: ["MIT"],
+      name: "Verbs",
+      description: description(),
       source_url: "https://github.com/shannonwells/verbs_ex",
       homepage_url: "https://github.com/shannonwells/verbs_ex",
-      version: "0.5.4",
+      package: package(),
+      version: "0.5.5",
       elixir: "~> 1.5",
+      build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
       deps: deps()
     ]
@@ -21,9 +24,21 @@ defmodule Verbs.Mixfile do
     ]
   end
 
+  defp description do
+    "Conjugates English verbs"
+  end
+
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+    ]
+  end
+
+  defp package() do
+    [
+      name: "Verbs",
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/shannonwells/verbs_ex"}
     ]
   end
 end
