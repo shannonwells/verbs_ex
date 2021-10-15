@@ -7,7 +7,7 @@ defmodule Verbs.Mixfile do
       licenses: ["MIT"],
       source_url: "https://github.com/shannonwells/verbs_ex",
       homepage_url: "https://github.com/shannonwells/verbs_ex",
-      version: "0.2.0",
+      version: "0.5.4",
       elixir: "~> 1.5",
       start_permanent: Mix.env == :prod,
       deps: deps()
