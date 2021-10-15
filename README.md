@@ -5,10 +5,10 @@ English verb conjugation in Elixir.
 Conjugates most common English verbs for all persons, tenses, standard aspects, and modern moods (with active diathesis). Standard and exceptional spelling rules are obeyed.
 
 ```
-Verbs.conjugate :be, :tense => "past", :person => "second", :plurality => "singular"
+Verbs.conjugate :be, %{:tense => "past", :person => "second", :plurality => "singular"}
 iex> "were"
 
-Verb.conjugate "sleep" :tense => "future", :person => "first", :plurality => "singular"
+Verb.conjugate "sleep" %{:tense => "future", :person => "first", :plurality => "singular"}
 "will sleep"
 ```  
 

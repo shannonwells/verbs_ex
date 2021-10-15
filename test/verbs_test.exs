@@ -20,6 +20,11 @@ defmodule VerbsTest do
     assert "I " <> Verbs.conjugate("be", options) == "I am"
   end
 
+  test "basic past" do
+    options = %{:tense => "past",:person => "first", :plurality => "singular"}
+    assert "I " <> Verbs.conjugate("work", options) == "I worked"
+  end
+
 
   test "irregulars" do
     # she drinks
