@@ -3,9 +3,10 @@ defmodule ConjugateIrregular do
   require Suffix
 
   def is_irregular?(infinitive) do
-    Map.has_key?(Irregulars.verb_forms, infinitive) end
+    Map.has_key?(Irregulars.verb_forms, String.downcase(infinitive)) end
 
   def conjugate(infinitive, options) do
+
     case options[:tense] do
       "past" -> fetch_past(infinitive)
       "past_perfect" -> past_perfect(infinitive, options)

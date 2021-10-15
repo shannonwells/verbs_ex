@@ -25,6 +25,13 @@ defmodule VerbsTest do
     assert "I " <> Verbs.conjugate("work", options) == "I worked"
   end
 
+  test "preserves case if capitalized" do
+    options = %{:tense => "past",:person => "first", :plurality => "singular"}
+    assert "I " <> Verbs.conjugate("Flee", options) == "I Fled"
+
+    options = %{:tense => "past",:person => "first", :plurality => "singular"}
+    assert "I " <> Verbs.conjugate("WALK", options) == "I WALKED"
+  end
 
   test "irregulars" do
     # she drinks

@@ -5,11 +5,12 @@ defmodule ConjugateIrregularTest do
   test "is_irregular?" do
     assert ConjugateIrregular.is_irregular?("awake") == true
     assert ConjugateIrregular.is_irregular?("play") == false
+    assert ConjugateIrregular.is_irregular?("flee") == true
   end
 
   test "present" do
-    options = %{:tense => "present", :person => "first", :plurality => "singular"}
-    assert "I " <> ConjugateIrregular.conjugate("awake", options) == "I awake"
+    options = %{:tense => "present", :person => "irst", :plurality => "singular"}
+    assert "I " <> ConjugateIrregular.conjugate("Awake", options) == "I Awake"
 
     options = %{:tense => "present", :person => "first", :plurality => "singular"}
     assert "They " <> ConjugateIrregular.conjugate("run", options) == "They run"
@@ -18,13 +19,14 @@ defmodule ConjugateIrregularTest do
   test "past" do
     options = %{:tense => "past", :person => "first", :plurality => "singular"}
     assert "I " <> ConjugateIrregular.conjugate("awake", options) == "I awoke"
+    assert "I " <> ConjugateIrregular.conjugate("flee", options) == "I fled"
+
 
     options = %{:tense => "past", :person => "first", :plurality => "singular"}
     assert "They " <> ConjugateIrregular.conjugate("run", options) == "They ran"
 
     options = %{:tense => "past", :person => "third", :plurality => "singular"}
     assert "She " <> ConjugateIrregular.conjugate("leave", options) == "She left"
-
 
   end
 
