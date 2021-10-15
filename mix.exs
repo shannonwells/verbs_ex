@@ -4,7 +4,6 @@ defmodule Verbs.Mixfile do
   def project do
     [
       app: :verbs,
-      name: "Verbs",
       description: description(),
       source_url: "https://github.com/shannonwells/verbs_ex",
       homepage_url: "https://github.com/shannonwells/verbs_ex",
@@ -31,12 +30,12 @@ defmodule Verbs.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end
 
   defp package() do
     [
-      name: "Verbs",
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/shannonwells/verbs_ex"}
     ]
