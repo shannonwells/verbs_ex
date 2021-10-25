@@ -1,7 +1,7 @@
 defmodule Suffix do
 
   @consonant_pattern "[bcdfghjklmnpqrstvwxz]"
-  @doubled_consonant_pattern "[bcdfghklmnprstz]"
+  @doubled_consonant_pattern "[bcdfghklmnprstz]{2}"
   @vowel_pattern "[aeiouy]"
   @doubled_vowel_pattern "[aeiouy]"
 
@@ -12,6 +12,8 @@ defmodule Suffix do
         String.replace_suffix(infinitive, "y", "ied")
       ends_vowel_lf?(infinitive) ->
         String.replace_suffix(infinitive, "lf", "lved")
+      ends_er?(infinitive) ->
+        infinitive <> "ed"
       ends_consonant_vowel_consonant?(infinitive) ->
         infinitive <> String.last(infinitive) <> "ed"
       true -> infinitive <> "ed"
@@ -47,9 +49,13 @@ defmodule Suffix do
   def ends_consonant_vowel_consonant?(infinitive) do
     pattern = @consonant_pattern <>
               @doubled_vowel_pattern <>
-              @doubled_consonant_pattern  <> "$"
+              @consonant_pattern  <> "$"
     {:ok, regex} = Regex.compile(pattern, "i")
     Regex.match?(regex, infinitive)
+  end
+
+  def ends_er?(infinitive) do
+    Regex.match?(~r/er/, infinitive)
   end
 
   def ends_consonant_plus_y?(infinitive) do

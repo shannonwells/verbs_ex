@@ -8,7 +8,7 @@ defmodule Verbs.Mixfile do
       source_url: "https://github.com/shannonwells/verbs_ex",
       homepage_url: "https://github.com/shannonwells/verbs_ex",
       package: package(),
-      version: "0.6.0",
+      version: "0.6.1",
       elixir: "~> 1.5",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,

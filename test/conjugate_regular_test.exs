@@ -142,5 +142,23 @@ defmodule ConjugateRegularTest do
 
   end
 
+  test "ends two consonants" do
+    [      %{tense: "past", verb: "hack", expected: "hacked"},
+    ]
+  end
 
+  test "-er, and odd, not irregular verb forms" do
+    [
+      %{tense: "past", verb: "clobber", expected: "clobbered"},
+      %{tense: "past", verb: "shatter", expected: "shattered"},
+      %{tense: "past", verb: "hack", expected: "hacked"},
+      %{tense: "past", verb: "miter", expected: "mitered"},
+      %{tense: "past", verb: "corner", expected: "cornered"},
+      %{tense: "past", verb: "belittle", expected: "belittled"},
+    ]
+    |> Enum.each( fn tc ->
+      options = %{:tense => tc.tense, :person => "first", :plurality => "singular"}
+      assert ConjugateRegular.conjugate(tc.verb, options) == tc.expected
+    end)
+  end
 end
