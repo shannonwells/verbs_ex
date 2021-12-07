@@ -155,6 +155,7 @@ defmodule ConjugateRegularTest do
       %{tense: "past", verb: "miter", expected: "mitered"},
       %{tense: "past", verb: "corner", expected: "cornered"},
       %{tense: "past", verb: "belittle", expected: "belittled"},
+      %{tense: "past", verb: "rescue", expected: "rescued"},
     ]
     |> Enum.each( fn tc ->
       options = %{:tense => tc.tense, :person => "first", :plurality => "singular"}

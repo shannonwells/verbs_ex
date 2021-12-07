@@ -1,13 +1,13 @@
 defmodule Suffix do
 
-  @consonant_pattern "[bcdfghjklmnpqrstvwxz]"
+  @consonant_pattern "[bcdfghjklmnpqrstvz]"
   @doubled_consonant_pattern "[bcdfghklmnprstz]{2}"
   @vowel_pattern "[aeiouy]"
   @doubled_vowel_pattern "[aeiouy]"
 
   def with_ed(infinitive) do
     cond do
-      ends_consonant_plus_e?(infinitive) -> infinitive <> "d"
+      ends_e?(infinitive) -> infinitive <> "d"
       ends_consonant_plus_y?(infinitive) ->
         String.replace_suffix(infinitive, "y", "ied")
       ends_vowel_lf?(infinitive) ->
@@ -34,7 +34,7 @@ defmodule Suffix do
   def with_s(infinitive) do
     cond do
       Regex.match?(~r/ch$/i, infinitive) -> infinitive <> "es"
-      ends_consonant_plus_e?(infinitive) -> infinitive <> "s"
+      ends_e?(infinitive) -> infinitive <> "s"
       ends_consonant_plus_y?(infinitive) -> String.replace_suffix(infinitive, "y", "ies")
       ends_vowel_lf?(infinitive) -> String.replace_suffix(infinitive, "lf", "lves")
       ends_aiou?(infinitive) -> infinitive <> "es"
@@ -54,8 +54,10 @@ defmodule Suffix do
     Regex.match?(regex, infinitive)
   end
 
+  #  Except for words like refer and prefer, in which case the
+  #  r is doubled.
   def ends_er?(infinitive) do
-    Regex.match?(~r/er/, infinitive)
+    Regex.match?(~r/[^f]er/, infinitive)
   end
 
   def ends_consonant_plus_y?(infinitive) do
@@ -63,8 +65,9 @@ defmodule Suffix do
     Regex.match?(regex, infinitive)
   end
 
-  def ends_consonant_plus_e?(infinitive) do
-    {:ok, regex} = Regex.compile(@consonant_pattern <> "e$","i")
+  def ends_e?(infinitive) do
+#    {:ok, regex} = Regex.compile(@consonant_pattern <> "e$","i")
+    {:ok, regex} = Regex.compile("e$","i")
     Regex.match?(regex, infinitive)
   end
 
