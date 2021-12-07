@@ -18,12 +18,12 @@ defmodule SuffixTest do
     assert Suffix.ends_consonant_plus_y?("run") == false
   end
 
-  test "ends_consonant_plus_e?" do
-    assert Suffix.ends_consonant_plus_e?("vote") == true
-    assert Suffix.ends_consonant_plus_e?("stitch") == false
-    assert Suffix.ends_consonant_plus_e?("inn") == false
-    assert Suffix.ends_consonant_plus_e?("carry") == false
-    assert Suffix.ends_consonant_plus_e?("run") == false
+  test "ends_e?" do
+    assert Suffix.ends_e?("vote") == true
+    assert Suffix.ends_e?("stitch") == false
+    assert Suffix.ends_e?("inn") == false
+    assert Suffix.ends_e?("carry") == false
+    assert Suffix.ends_e?("run") == false
   end
 
   test "ends_ie?" do
