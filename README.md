@@ -15,7 +15,7 @@ Verb.conjugate "sleep" %{:tense => "future", :person => "first", :plurality => "
 
 Add this line to your mix.exs dependencies:
 ```
-{ :dep_from_git, git: https://github.com/shannonwells/verbs.git, tag: "0.1.0"},
+{ :dep_from_git, git: https://github.com/shannonwells/verbs.git, tag: "0.6.1"},
 ```
 
 ## 'Options'
