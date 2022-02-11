@@ -53,6 +53,9 @@ __:mood__ - indicative, imperative, subjunctive
     I will be accepting       future   progressive
     I will be about to accept future   prospective
 
+## Issues
+Bug reports are welcome.  Please file an issue in this repo if you find one.
+
 ## Acknowledgements
 
 * (Andy Rossmeissl - rossmeissl/verbs)[https://github.com/rossmeissl/verbs]
