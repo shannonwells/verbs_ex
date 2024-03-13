@@ -58,11 +58,11 @@ Bug reports are welcome.  Please file an issue in this repo if you find one.
 
 ## Acknowledgements
 
-* (Andy Rossmeissl - rossmeissl/verbs)[https://github.com/rossmeissl/verbs]
-* (Lingua::Conjugate)[http://cpansearch.perl.org/src/RWG/Lingua-EN-Conjugate-0.308/lib/Lingua/EN/Conjugate.pm]
-* (Pat Byrd and Tom McKlin)[http://www2.gsu.edu/~wwwesl/egw/pluralsv.htm]
-* (Rick Harrison)[http://www.rickharrison.com/language/aspect.html]
-* (Anatoli Makarevich)[https://github.com/makaroni4] for (#6)[https://github.com/rossmeissl/verbs/pull/6]
+* [Andy Rossmeissl - rossmeissl/verbs](https://github.com/rossmeissl/verbs)
+* [Lingua::Conjugate](http://cpansearch.perl.org/src/RWG/Lingua-EN-Conjugate-0.308/lib/Lingua/EN/Conjugate.pm)
+* [Pat Byrd and Tom McKlin](http://www2.gsu.edu/~wwwesl/egw/pluralsv.htm)
+* [Rick Harrison](http://www.rickharrison.com/language/aspect.html)
+* [Anatoli Makarevich](https://github.com/makaroni4) for [PR #6](https://github.com/rossmeissl/verbs/pull/6)
 
 ## Copyright
 
